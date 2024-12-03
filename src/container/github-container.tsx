@@ -11,9 +11,8 @@ const GithubContainer = () => {
 
   const { ref, inView } = useInView();
   // states
-  const [searchQuery, setSearchQuery] = useState('');
-
-
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [language, setLanguage] = useState<string>('');
 
 
   const {
@@ -26,7 +25,7 @@ const GithubContainer = () => {
     error,
   } = useGitHubSearch({
     query: searchQuery,
-    language: '',
+    language,
     page: 1,
   });
 
@@ -49,6 +48,8 @@ const GithubContainer = () => {
       <Header
         onSearchChange={setSearchQuery}
         searchQuery={searchQuery}
+        language={language}
+        onLanguageChange={setLanguage}
       />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <RepositoryGrid
