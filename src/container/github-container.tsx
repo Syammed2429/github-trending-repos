@@ -47,6 +47,15 @@ const GithubContainer = () => {
           errorMessage={errorMessage}
         />
         <div ref={ref} className="h-20" />
+        {isFetchingNextPage && (
+          <div className="mt-8">
+            <RepositoryGrid
+              repositories={[]}
+              isLoading={true}
+              isError={false}
+            />
+          </div>
+        )}
       </main>
       <RateLimitAlert />
     </div>
