@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { Repository } from '@/types/github';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { AnimatedStar } from '../background/animated-star';
-
+import { LanguageBadge } from './language-badge';
 
 interface RepositoryCardProps {
     repository: Repository;
@@ -77,10 +77,7 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
                         <span>{repository.owner.login}</span>
                     </a>
                     {repository.language && (
-                        <span className="flex items-center">
-                            <span className="w-3 h-3 rounded-full bg-primary/20 mr-1.5" />
-                            {repository.language}
-                        </span>
+                        <LanguageBadge language={repository.language} />
                     )}
                 </CardFooter>
             </Card>
