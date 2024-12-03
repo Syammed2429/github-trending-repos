@@ -48,9 +48,7 @@ export function buildGitHubQuery(searchQuery: string = '', language: string = ''
     }
 
     if (language.trim()) {
-        // Map cpp to 'c++' for the GitHub API
-        const apiLanguage = language === 'cpp' ? 'c++' : language;
-        parts.push(`language:${apiLanguage}`);
+        parts.push(`language:${language.trim()}`);
     }
 
     return parts.join(' ');
