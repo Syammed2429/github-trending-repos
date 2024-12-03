@@ -1,3 +1,4 @@
+import { StarBackground } from '@/components/background/background-stars';
 import { Header } from '@/components/header'
 import { RepositoryGrid } from '@/components/repos/repos-grid'
 import { useGitHubSearch } from '@/hooks/use-github-hook';
@@ -34,7 +35,8 @@ const GithubContainer = () => {
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background ">
+      <StarBackground />
       <Header />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <RepositoryGrid
