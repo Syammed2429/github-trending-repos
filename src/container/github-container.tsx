@@ -1,3 +1,4 @@
+import { RateLimitAlert } from '@/components/alert/rate-limit-alert';
 import { StarBackground } from '@/components/background/background-stars';
 import { Header } from '@/components/header'
 import { RepositoryGrid } from '@/components/repos/repos-grid'
@@ -47,6 +48,7 @@ const GithubContainer = () => {
         />
         <div ref={ref} className="h-20" />
       </main>
+      <RateLimitAlert />
     </div>
   )
 }
