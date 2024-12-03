@@ -3,12 +3,18 @@ import { StarBackground } from '@/components/background/background-stars';
 import { Header } from '@/components/header'
 import { RepositoryGrid } from '@/components/repos/repos-grid'
 import { useGitHubSearch } from '@/hooks/use-github-hook';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+
 
 const GithubContainer = () => {
 
   const { ref, inView } = useInView();
+  // states
+  const [searchQuery, setSearchQuery] = useState('');
+
+
+
 
   const {
     data,
@@ -19,7 +25,7 @@ const GithubContainer = () => {
     isError,
     error,
   } = useGitHubSearch({
-    query: '',
+    query: searchQuery,
     language: '',
     page: 1,
   });
@@ -35,10 +41,15 @@ const GithubContainer = () => {
   const errorMessage = error instanceof Error ? error.message : 'An error occurred while fetching repositories.';
 
 
+
+
   return (
     <div className="min-h-screen bg-background ">
       <StarBackground />
-      <Header />
+      <Header
+        onSearchChange={setSearchQuery}
+        searchQuery={searchQuery}
+      />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <RepositoryGrid
           repositories={repositories}

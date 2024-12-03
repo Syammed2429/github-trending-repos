@@ -1,10 +1,18 @@
 import { Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from './theme-provider';
+import { SearchBar } from './header/search-bar';
 
 
-export const Header = () => {
+
+interface HeaderProps {
+    searchQuery: string;
+    onSearchChange: (value: string) => void;
+}
+
+export const Header = ({ searchQuery, onSearchChange }: HeaderProps) => {
     const { theme, setTheme } = useTheme();
+
 
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -26,8 +34,13 @@ export const Header = () => {
                             )}
                         </Button>
                     </div>
+
+                </div>
+                <div className="mt-4 flex gap-4">
+                    <SearchBar value={searchQuery} onChange={onSearchChange} />
                 </div>
             </div>
+
         </header>
     );
 }
