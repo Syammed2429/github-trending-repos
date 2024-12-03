@@ -3,6 +3,7 @@ import { Card, CardHeader, CardFooter } from '@/components/ui/card';
 import { motion } from 'motion/react';
 import { Repository } from '@/types/github';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { AnimatedStar } from '../background/animated-star';
 
 
 interface RepositoryCardProps {
@@ -16,16 +17,34 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             whileHover={{ scale: 1.02 }}
+
         >
-            <Card className="h-[12rem] relative">
-                <CardHeader>
+            <Card className="h-[12rem] relative group">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-500/5 to-transparent" />
+                    {Array.from({ length: 3 }).map((_, i) => (
+                        <div
+                            key={i}
+                            className="absolute"
+                            style={{
+                                left: `${Math.random() * 80}%`,
+                                top: `${Math.random() * 80}%`,
+                                transform: 'scale(0.4)',
+                                transition: `all ${0.2 + i * 0.1}s ease-out`,
+                            }}
+                        >
+                            <AnimatedStar delay={i * 0.15} />
+                        </div>
+                    ))}
+                </div>
+                <CardHeader >
                     <div className="flex items-start justify-between">
                         <div className="space-y-1">
                             <a
                                 href={repository.html_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-xl font-semibold text-primary hover:underline line-clamp-1"
+                                className="text-xl font-semibold text-primary hover:underline line-clamp-1 text-ellipsis max-w-[70%]"
                             >
                                 {repository.name}
                             </a>
