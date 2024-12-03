@@ -10,3 +10,15 @@ export const languages = {
     Go: { bg: 'bg-[#00ADD8]/20', text: 'text-[#00ADD8]' },
     Rust: { bg: 'bg-[#dea584]/20', text: 'text-[#dea584]' },
 }
+
+export const dropDownLanguages = [
+    { value: 'all', label: 'All Languages' },
+    { value: 'javascript', label: 'JavaScript' },
+    { value: 'typescript', label: 'TypeScript' },
+    { value: 'python', label: 'Python' },
+    { value: 'java', label: 'Java' },
+    { value: 'go', label: 'Go' },
+    { value: 'rust', label: 'Rust' },
+    { value: 'cpp', label: 'C++' },
+    { value: 'ruby', label: 'Ruby' },
+];
