@@ -39,12 +39,12 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
                 </div>
                 <CardHeader >
                     <div className="flex items-start justify-between">
-                        <div className="space-y-1">
+                        <div className="space-y-1 min-w-0 flex-1">
                             <a
                                 href={repository.html_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-xl font-semibold text-primary hover:underline line-clamp-1 text-ellipsis max-w-[70%]"
+                                className="text-xl font-semibold text-primary hover:underline block truncate"
                             >
                                 {repository.name}
                             </a>
