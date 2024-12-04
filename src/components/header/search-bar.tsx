@@ -31,7 +31,7 @@ export const SearchBar = ({ value, onChange }: SearchBarProps) => {
                 value={inputValue}
                 onChange={(e) => handleChange(e.target.value)}
                 placeholder="Search repositories..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg"
+                className="w-full pl-10 pr-4 py-2 rounded-lg"
             />
         </div>
     );
