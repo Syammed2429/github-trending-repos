@@ -24,7 +24,8 @@ githubApi.interceptors.response.use(
     },
     async (error) => {
         if (axios.isAxiosError(error) && error.response?.status === 403) {
-            const resetTime = parseInt(error.response.headers['x-ratelimit-reset'] || '0', 10) * 1000;
+            const resetTime =
+                parseInt(error.response.headers['x-ratelimit-reset'] || '0', 10) * 1000;
             const waitTime = resetTime - Date.now();
 
             if (waitTime > 0) {
@@ -32,7 +33,9 @@ githubApi.interceptors.response.use(
                 localStorage.setItem('github_rate_limit_remaining', '0');
                 localStorage.setItem('github_rate_limit_reset', resetTime.toString());
 
-                throw new Error(`GitHub API rate limit exceeded. Reset in ${Math.ceil(waitTime / 1000 / 60)} minutes.`);
+                throw new Error(
+                    `GitHub API rate limit exceeded. Reset in ${Math.ceil(waitTime / 1000 / 60)} minutes.`
+                );
             }
         }
         throw error;

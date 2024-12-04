@@ -29,17 +29,20 @@ A modern React application that showcases trending GitHub repositories with real
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/Syammed2429/github-trending-repos.git
 cd github-trending-repos
 ```
 
 2. Install dependencies:
+
 ```bash
 pnpm install
 ```
 
 3. Start the development server:
+
 ```bash
 pnpm dev
 ```
@@ -65,12 +68,9 @@ Use the search bar to find repositories by name or description:
 
 ```typescript
 // Example search functionality
-    const debouncedOnChange = useDebouncedCallback(
-        (value: string) => {
-            onChange(value);
-        },
-        300
-    );
+const debouncedOnChange = useDebouncedCallback((value: string) => {
+    onChange(value);
+}, 300);
 ```
 
 ### Filtering by Language
@@ -80,8 +80,8 @@ Select a programming language from the dropdown to filter repositories:
 ```typescript
 // Example language filtering
 const handleValueChange = (newValue: string) => {
-        onChange(newValue === 'all' ? '' : newValue);
-    };
+    onChange(newValue === 'all' ? '' : newValue);
+};
 ```
 
 ### Theme Switching
@@ -93,7 +93,6 @@ Toggle between light and dark themes:
 const { theme, setTheme } = useTheme();
 setTheme(theme === 'light' ? 'dark' : 'light');
 ```
-
 
 ## 📦 Available Scripts
 
@@ -138,6 +137,7 @@ src/
 ## 🔒 Rate Limiting
 
 The application includes built-in handling for GitHub API rate limits:
+
 - Monitors remaining API calls
 - Shows visual feedback when approaching limits
 - Implements exponential backoff for retries
@@ -149,7 +149,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Contact
 
- [@GitHub](https://github.com/Syammed2429)
+[@GitHub](https://github.com/Syammed2429)
 
 Project Link: [https://github.com/Syammed2429/github-trending-repos/](https://github.com/Syammed2429/github-trending-repos/)
 

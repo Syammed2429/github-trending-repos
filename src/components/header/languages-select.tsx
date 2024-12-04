@@ -1,5 +1,5 @@
-import { dropDownLanguages } from "@/utils/data/json-data";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import { dropDownLanguages } from '@/utils/data/json-data';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 
 interface LanguageSelectProps {
     value: string;
@@ -26,4 +26,4 @@ export const LanguageSelect = ({ value, onChange }: LanguageSelectProps) => {
             </SelectContent>
         </Select>
     );
-}
+};

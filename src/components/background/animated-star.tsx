@@ -18,10 +18,10 @@ export const AnimatedStar = ({ size = 16, delay = 0 }: AnimatedStarProps) => {
                 duration: 2,
                 delay,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: 'easeInOut',
             }}
         >
             <Star size={size} className="text-yellow-400" />
         </motion.div>
     );
-}
+};

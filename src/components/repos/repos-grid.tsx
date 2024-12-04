@@ -9,10 +9,15 @@ interface RepositoryGridProps {
     errorMessage?: string;
 }
 
-export const RepositoryGrid = ({ repositories, isLoading, isError, errorMessage }: RepositoryGridProps) => {
+export const RepositoryGrid = ({
+    repositories,
+    isLoading,
+    isError,
+    errorMessage,
+}: RepositoryGridProps) => {
     if (isError) {
         return (
-            <div className="text-center text-red-600 dark:text-red-400 p-4 bg-red-50 dark:bg-red-900/10 rounded-lg">
+            <div className="rounded-lg bg-red-50 p-4 text-center text-red-600 dark:bg-red-900/10 dark:text-red-400">
                 {errorMessage || 'Error loading repositories. Please try again later.'}
             </div>
         );
@@ -20,7 +25,7 @@ export const RepositoryGrid = ({ repositories, isLoading, isError, errorMessage 
 
     if (!isLoading && repositories.length === 0) {
         return (
-            <div className="text-center text-gray-600 dark:text-gray-400 p-4">
+            <div className="p-4 text-center text-gray-600 dark:text-gray-400">
                 No repositories found matching your criteria.
             </div>
         );
@@ -30,9 +35,7 @@ export const RepositoryGrid = ({ repositories, isLoading, isError, errorMessage 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {isLoading
                 ? Array.from({ length: 6 }).map((_, i) => <CardSkeleton key={i} />)
-                : repositories.map((repo) => (
-                    <RepositoryCard key={repo.id} repository={repo} />
-                ))}
+                : repositories.map((repo) => <RepositoryCard key={repo.id} repository={repo} />)}
         </div>
     );
-}
+};

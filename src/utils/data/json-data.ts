@@ -9,7 +9,7 @@ export const languages = {
     HTML: { bg: 'bg-[#e34c26]/20', text: 'text-[#e34c26]' },
     Go: { bg: 'bg-[#00ADD8]/20', text: 'text-[#00ADD8]' },
     Rust: { bg: 'bg-[#dea584]/20', text: 'text-[#dea584]' },
-}
+};
 
 export const dropDownLanguages = [
     { value: 'all', label: 'All Languages' },

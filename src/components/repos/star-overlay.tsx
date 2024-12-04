@@ -1,8 +1,8 @@
-import { AnimatedStar } from "../background/animated-star";
+import { AnimatedStar } from '../background/animated-star';
 
 export const StarryOverlay = () => {
     return (
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden pointer-events-none">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-500/5 to-transparent" />
             {Array.from({ length: 3 }).map((_, i) => (
                 <div
