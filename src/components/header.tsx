@@ -18,9 +18,9 @@ export const Header = ({ searchQuery, onSearchChange, language, onLanguageChange
 
 
     return (
-        <header className="sticky top-0 z-50 max-w-screen border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                <div className="flex items-center justify-between">
+        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="container py-4 px-5 mx-auto">
+                <div className="flex items-center justify-between ">
                     <h1 className="text-2xl font-bold tracking-tight">
                         Trending Repos
                     </h1>
@@ -37,14 +37,12 @@ export const Header = ({ searchQuery, onSearchChange, language, onLanguageChange
                             )}
                         </Button>
                     </div>
-
                 </div>
                 <div className="mt-4 flex gap-4">
                     <SearchBar value={searchQuery} onChange={onSearchChange} />
                     <LanguageSelect value={language} onChange={onLanguageChange} />
                 </div>
             </div>
-
         </header>
     );
 }

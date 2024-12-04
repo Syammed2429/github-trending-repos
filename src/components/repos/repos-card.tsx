@@ -1,9 +1,10 @@
-import { Star } from 'lucide-react';
-import { Card, CardHeader, CardFooter } from '@/components/ui/card';
+import { Star} from 'lucide-react';
+import { Card, CardHeader,  CardFooter } from '@/components/ui/card';
 import { motion } from 'motion/react';
 import { Repository } from '@/types/github';
+import { StarryOverlay } from './star-overlay';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { AnimatedStar } from '../background/animated-star';
+
 import { LanguageBadge } from './language-badge';
 
 interface RepositoryCardProps {
@@ -17,34 +18,18 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             whileHover={{ scale: 1.02 }}
-
+            className="group"
         >
-            <Card className="h-[12rem] relative group">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-500/5 to-transparent" />
-                    {Array.from({ length: 3 }).map((_, i) => (
-                        <div
-                            key={i}
-                            className="absolute"
-                            style={{
-                                left: `${Math.random() * 80}%`,
-                                top: `${Math.random() * 80}%`,
-                                transform: 'scale(0.4)',
-                                transition: `all ${0.2 + i * 0.1}s ease-out`,
-                            }}
-                        >
-                            <AnimatedStar delay={i * 0.15} />
-                        </div>
-                    ))}
-                </div>
-                <CardHeader >
+            <Card className="h-[10rem] relative overflow-hidden">
+                <StarryOverlay />
+                <CardHeader>
                     <div className="flex items-start justify-between">
-                        <div className="space-y-1 min-w-0 flex-1">
+                        <div className="space-y-1">
                             <a
                                 href={repository.html_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-xl font-semibold text-primary hover:underline block truncate"
+                                className="text-xl font-semibold text-primary hover:underline line-clamp-1"
                             >
                                 {repository.name}
                             </a>
@@ -60,22 +45,21 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
                         </div>
                     </div>
                 </CardHeader>
-                <CardFooter className="absolute bottom-0 flex items-center justify-between space-x-4 text-sm text-muted-foreground w-full">
-                    <a
-                        href={repository.owner.html_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center hover:text-primary transition-colors"
-                    >
+                <CardFooter className="absolute flex items-center justify-between w-full -bottom-2 space-x-4 text-sm text-muted-foreground">
+                        <a
+                            href={repository.owner.html_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center hover:text-primary transition-colors"
+                        >
                         <Avatar
                             className="w-6 h-6 rounded-full mr-2"
                         >
                             <AvatarImage src={repository.owner.avatar_url} />
                             <AvatarFallback>{repository.owner.login}</AvatarFallback>
                         </Avatar>
-
-                        <span>{repository.owner.login}</span>
-                    </a>
+                            <span>{repository.owner.login}</span>
+                        </a>
                     {repository.language && (
                         <LanguageBadge language={repository.language} />
                     )}
