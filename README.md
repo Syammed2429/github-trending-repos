@@ -100,6 +100,35 @@ setTheme(theme === 'light' ? 'dark' : 'light');
 - `pnpm build` - Build for production
 - `pnpm preview` - Preview production build
 - `pnpm lint` - Run ESLint
+- `pnpm format` or `pnpm prettier:format`  - Format code using Prettier
+- `pnpm format:check` - Check code formatting
+
+## 🎨 Code Formatting
+
+This project uses Prettier for consistent code formatting. The configuration can be found in `.prettierrc.json`:
+
+```json
+{
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 4,
+  "trailingComma": "es5"
+}
+```
+
+To format your code:
+
+```bash
+# Format all files
+pnpm format 
+or
+pnpm prettier:format
+
+# Check formatting without making changes
+pnpm format:check
+```
+
+It's recommended to install the Prettier extension for your editor and enable "Format on Save" for the best development experience.
 
 ## 🤝 Contributing
 
