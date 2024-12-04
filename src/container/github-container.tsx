@@ -51,7 +51,7 @@ const GithubContainer = () => {
         language={language}
         onLanguageChange={setLanguage}
       />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-[7rem]">
         <RepositoryGrid
           repositories={repositories}
           isLoading={isLoading}
@@ -60,7 +60,7 @@ const GithubContainer = () => {
         />
         <div ref={ref} className="h-20" />
         {isFetchingNextPage && (
-          <div className="mt-8">
+          <div className="mt-8 mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
             <RepositoryGrid
               repositories={[]}
               isLoading={true}
