@@ -2,6 +2,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { CACHE_RETRY_COUNT, CACHE_STALE_TIME } from './config/constants';
 import GithubContainer from './container/github-container';
 import { ThemeProvider } from './components/theme-provider';
+import { Analytics } from '@vercel/analytics/react';
+
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -19,6 +21,7 @@ function App() {
             <ThemeProvider defaultTheme="system" storageKey="github-explorer-theme">
                 <QueryClientProvider client={queryClient}>
                     <GithubContainer />
+                          <Analytics />
                 </QueryClientProvider>
             </ThemeProvider>
         </>
